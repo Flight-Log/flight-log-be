@@ -9,3 +9,11 @@ jobs:
         run: sudo apt update
       - name: Check out repository code
         uses: actions/checkout@v3
+      - name: Install pip
+        run: sudo apt install python3-pip
+      - name: Install requirements
+        run: pip install -r requirements.txt
+      - name: Execute tests
+        env:
+          DJANGO_SETTINGS_MODULE: mysite.settings
+        run: python -m unittest
