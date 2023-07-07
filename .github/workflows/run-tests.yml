@@ -1,2 +1,6 @@
 name: Run tests
 on: push
+jobs:
+  execute_tests:
+    name: Install requirements and execute tests
+    runs-on: macos-latest
