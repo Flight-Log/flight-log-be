@@ -1,9 +1,11 @@
 import factory
-from . import models
+from django.db import models
+from flight_log_be.models import User
 
-class UserFactory(factory.Factory):
+class UserFactory(factory.django.DjangoModelFactory):
     class Meta:
-        model = models.User
+        model = User
+
 
     first_name = factory.Faker('first_name')
     last_name = factory.Faker('last_name')
