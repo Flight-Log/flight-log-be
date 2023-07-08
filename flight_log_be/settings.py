@@ -80,9 +80,6 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'FlightLog',
-        "TEST": {
-            "NAME": "testflightlog",
-        },
         'USER': 'katielonsdale',
         'PASSWORD': '1234',
         'HOST': 'localhost',
