@@ -19,6 +19,7 @@ from django.urls import path
 from flight_log_be import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('users/', views.user_list)
+    path('api/v1/admin/', admin.site.urls),
+    path('api/v1/users/', views.user_list),
+    path('api/v1/users/<int:id>/flights/', views.create_flight)
 ]
