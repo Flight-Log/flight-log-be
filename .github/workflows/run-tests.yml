@@ -13,7 +13,7 @@ jobs:
         run: sudo apt install python3-pip
       - name: Install requirements
         run: pip install -r requirements.txt
-      -name: Run server
+      - name: Run server
         run: python manage.py runserver
       - name: Execute tests
         env:
