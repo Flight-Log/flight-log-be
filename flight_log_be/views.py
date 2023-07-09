@@ -12,3 +12,16 @@ def user_list(request):
     users = User.objects.all()
     serializer = UserSerializer(users, many=True)
     return JsonResponse(serializer.data, safe=False)
+
+
+@api_view(["GET"])
+def flight_list(request, id):
+    try:
+        user = User.objects.get(pk=id)
+    except User.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == "GET":
+        flights = Flight.objects.filter(user=user)
+        serializer = FlightSerializer(flights, many=True)
+        return Response(serializer.data)
