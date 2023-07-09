@@ -15,5 +15,5 @@ jobs:
         run: pip install -r requirements.txt
       - name: Execute tests
         env:
-          DJANGO_SETTINGS_MODULE: mysite.settings
-        run: python -m unittest
+          DJANGO_SETTINGS_MODULE: flight_log_be.settings
+        run: python manage.py test
