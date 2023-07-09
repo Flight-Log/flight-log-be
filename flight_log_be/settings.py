@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'factory_boy',
     'rest_framework',
     'flight_log_be',
     'psycopg2',
