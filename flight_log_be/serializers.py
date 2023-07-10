@@ -10,4 +10,12 @@ class UserSerializer(serializers.ModelSerializer):
 class FlightSerializer(serializers.ModelSerializer):
     class Meta:
         model = Flight
-        fields = ['id', 'user', 'date', 'aircraft', 'start_location', 'end_location', 'day_hours', 'night_hours', 'description']
+        fields = ['id',
+                  'user',
+                  'date',
+                  'aircraft',
+                  'start_location',
+                  'end_location',
+                  'day_hours',
+                  'night_hours',
+                  'description']

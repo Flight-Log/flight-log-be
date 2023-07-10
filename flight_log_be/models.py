@@ -9,7 +9,7 @@ class User(models.Model):
     return str(self.first_name + " " + self.last_name)
 
 class Flight(models.Model):
-  user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_flights')
+  user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='flight_set')
   date = models.DateField(default=timezone.now)
   start_location = models.CharField(max_length=50)
   end_location = models.CharField(max_length=50)
