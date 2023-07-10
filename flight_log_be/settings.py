@@ -31,10 +31,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'factory_boy',
     'rest_framework',
     'flight_log_be',
     'psycopg2',
+    'factory_boy',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
