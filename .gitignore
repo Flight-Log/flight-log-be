@@ -1,2 +1,3 @@
 .venv
 *.pyc
+flight_log_be/__pycache__/
