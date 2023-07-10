@@ -1,8 +1,8 @@
 from django.http import JsonResponse
 from .models import User
 from .serializers import UserSerializer
-from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.decorators import api_view
 
 def user_list(request):
   
@@ -11,8 +11,15 @@ def user_list(request):
   return JsonResponse(serializer.data, safe=False)
 
 
-class ListAUser(APIView):
+@api_view(['GET'])
 
-  def get(request, id):
-    user = User.objects.get(id=id)
-    return Response(status=200)
+def return_a_user(request, id):
+  user = User.objects.get(id=id)
+  serializer = UserSerializer(user)
+  user_details = {"data":
+                    {"id": f"{user.id}",
+                    "type": "user",
+                    "attributes": serializer.data
+                    }
+                  }
+  return JsonResponse(user_details, status=200)
