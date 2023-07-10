@@ -16,4 +16,4 @@ jobs:
       - name: Execute tests
         env:
           DJANGO_SETTINGS_MODULE: flight_log_be.settings
-        run: python -m unittest
+        run: python manage.py test
