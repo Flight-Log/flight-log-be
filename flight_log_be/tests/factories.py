@@ -1,5 +1,4 @@
 import factory
-from django.db import models
 from flight_log_be.models import User
 
 class UserFactory(factory.django.DjangoModelFactory):
