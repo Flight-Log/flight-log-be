@@ -20,6 +20,5 @@ from flight_log_be import views
 
 urlpatterns = [
     path('api/v1/admin/', admin.site.urls),
-    # path('api/v1/users/', views.user_list),
     path('api/v1/users/<int:user>/flights/', views.create_flight, name='create_flight'),
 ]
