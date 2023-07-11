@@ -48,8 +48,8 @@ class GetFlightsCase(TestCase):
             date=date.today(),
             start_location="JFK",
             end_location="LAX",
-            day_hours=1.0,
-            night_hours=0.0,
+            day_hours=1.00,
+            night_hours=0.00,
             aircraft="C172",
             description="Test flight 1.",
             role="Pilot",
@@ -60,8 +60,8 @@ class GetFlightsCase(TestCase):
             date=date.today(),
             start_location="ILM",
             end_location="DFW",
-            day_hours=3.0,
-            night_hours=1.5,
+            day_hours=3.00,
+            night_hours=1.50,
             aircraft="Boeing 747",
             description="Test flight 2.",
             role="Pilot",
@@ -72,8 +72,8 @@ class GetFlightsCase(TestCase):
             date=date.today(),
             start_location="PDX",
             end_location="LGA",
-            day_hours=2.5,
-            night_hours=0.5,
+            day_hours=2.50,
+            night_hours=0.50,
             aircraft="Boeing 737",
             description="Test flight 3.",
             role="Pilot",
@@ -145,6 +145,7 @@ class FlightCreationTestCase(TestCase):
             'day_hours': 5,
             'night_hours': 3,
             'description': 'Test flight',
+            'role': 'Pilot',
         }
     
         response = self.client.post(f'/api/v1/users/{user.id}/flights/',dict(flight_data))
@@ -170,7 +171,8 @@ class FlightCreationSadPathTestCase(TestCase):
         expected_response = { "errors": 
                                 [
                                     {'start_location': ['This field is required.'],
-                                    'end_location': ['This field is required.']}
+                                    'end_location': ['This field is required.'],
+                                    'role': ['This field is required.']}
                                 ]
                             }
         self.assertEqual(response.json(), expected_response)
