@@ -1,45 +1,74 @@
 from django.http import JsonResponse
-from .models import User
-from .models import Flight
-from .serializers import UserSerializer
-from .serializers import FlightSerializer
+from .models import User, Flight
+from .serializers import UserSerializer, FlightSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
-
+from copy import deepcopy
 # from rest_framework.views import APIView --> needed for class-based views if using JSON-API
 
+@api_view(['GET'])
 
-def user_list(request):
-    users = User.objects.all()
-    serializer = UserSerializer(users, many=True)
-    return JsonResponse(serializer.data, safe=False)
+def return_a_user(request, id):
+  try:
+    user = User.objects.get(id=id)
+  except:
+    error = {"errors": [{"detail": "User not found."}]}
+    return JsonResponse(error, status=404)
+  serializer = UserSerializer(user)
+  user_details = {"data":
+                    {"id": f"{user.id}",
+                    "type": "user",
+                    "attributes": serializer.data
+                    }
+                  }
+  return JsonResponse(user_details, status=200)
+
+@api_view(["GET", "POST"])
+def flights(request, user):
+  if request.method == "GET":
+      try:
+          found_user = User.objects.get(pk=user)
+      except:
+          error = {"errors": [{"detail": "Invalid user id."}]}
+          return JsonResponse(error, status=404)
+
+      flights = Flight.objects.filter(user=found_user)
+      serializer = FlightSerializer(flights, many=True)
+      flight_details = []
+
+      for index, x in enumerate(flights):
+          flight = {
+              "id": f"{x.id}",
+              "type": "flight",
+              "attributes": serializer.data[index],
+          }
+          flight["attributes"].pop("user")
+          flight_details.append(flight)
+
+      flight_response = {"data": flight_details}
+
+      return JsonResponse(flight_response, status=200)
 
 
-@api_view(["GET"])
-def get_flights_for_user(request, id):
-    try:
-        user = User.objects.get(pk=id)
-    except:
-        error = {"errors": [{"detail": "Invalid user id."}]}
-        return JsonResponse(error, status=404)
+  elif request.method == "POST":
+    data = deepcopy(request.data)
+    data['user'] = user
+    serializer = FlightSerializer(data=data)
 
-    flights = Flight.objects.filter(user=user)
-    serializer = FlightSerializer(flights, many=True)
-    flight_details = []
 
-    for index, x in enumerate(flights):
-        flight = {
-            "id": f"{x.id}",
-            "type": "flight",
-            "attributes": serializer.data[index],
-        }
-        flight["attributes"].pop("user")
-        flight_details.append(flight)
-
-    flight_response = {"data": flight_details}
-
-    return JsonResponse(flight_response, status=200)
+    if serializer.is_valid():
+      serializer.save()
+      flight_data = {"data": 
+                      {"id": Flight.objects.last().id,
+                       "type": "flight",
+                       "attributes": serializer.data
+                      }
+                    }
+      return Response(flight_data, status=status.HTTP_201_CREATED)
+    else:
+      error = {"errors": [serializer.errors]}
+      return Response(error, status=status.HTTP_400_BAD_REQUEST)
 
 
 # Class-based view for using JSON-API approach to serialization

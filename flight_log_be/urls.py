@@ -20,9 +20,9 @@ from flight_log_be import views
 from rest_framework.urlpatterns import format_suffix_patterns
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("api/v1/users/", views.user_list),
-    path("api/v1/users/<int:id>/flights/", views.get_flights_for_user),
+    path('admin/', admin.site.urls),
+    path('api/v1/users/<int:id>', views.return_a_user),
+    path('api/v1/users/<int:user>/flights/', views.flights),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
