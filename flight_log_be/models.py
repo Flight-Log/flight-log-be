@@ -10,14 +10,14 @@ class User(models.Model):
 
 class Flight(models.Model):
   user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='flight_set')
-  date = models.DateField(default=timezone.now)
-  start_location = models.CharField(max_length=50)
-  end_location = models.CharField(max_length=50)
-  day_hours = models.DecimalField(max_digits=4, decimal_places=2)
-  night_hours = models.DecimalField(max_digits=4, decimal_places=2)
-  aircraft = models.CharField(max_length=50)
-  description = models.CharField(max_length=500)
-  role = models.CharField(max_length=50)
+  date = models.DateField(default=timezone.now, blank=False)
+  start_location = models.CharField(max_length=50, blank=False)
+  end_location = models.CharField(max_length=50, blank=False)
+  day_hours = models.DecimalField(max_digits=4, decimal_places=2, default=0.00)
+  night_hours = models.DecimalField(max_digits=4, decimal_places=2, default=0.00)
+  aircraft = models.CharField(max_length=50, blank=False)
+  description = models.CharField(max_length=500, blank=True)
+  role = models.CharField(max_length=50, blank=False)
 
   def __str__(self):
     return '{} to {}'.format(self.start_location, self.end_location)
