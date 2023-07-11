@@ -6,7 +6,7 @@ from rest_framework import status
 from copy import deepcopy
 
 from .serializers import FlightSerializer
-from .models import User
+from .models import User, Flight
 
 @api_view(['POST'])
 def create_flight(request, user):
@@ -17,10 +17,12 @@ def create_flight(request, user):
   if serializer.is_valid():
     serializer.save()
     flight_data = {"data": 
-                    {"type": "flight",
+                    {"id": Flight.objects.last().id,
+                     "type": "flight",
                      "attributes": serializer.data
                     }
                   }
     return Response(flight_data, status=status.HTTP_201_CREATED)
   else:
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    error = {"errors": [serializer.errors]}
+    return Response(error, status=status.HTTP_400_BAD_REQUEST)
