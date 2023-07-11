@@ -1,4 +1,5 @@
 from django.test import TestCase
+from datetime import date
 from django.utils import timezone
 from flight_log_be.models import User, Flight
 

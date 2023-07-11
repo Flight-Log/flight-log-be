@@ -17,9 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from flight_log_be import views
+from rest_framework.urlpatterns import format_suffix_patterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/users/<int:id>', views.return_a_user),
-    path('api/v1/users/<int:user>/flights/', views.create_flight, name='create_flight')
+    path('api/v1/users/<int:user>/flights/', views.flights),
 ]
+
+urlpatterns = format_suffix_patterns(urlpatterns)
