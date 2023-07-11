@@ -14,7 +14,11 @@ def user_list(request):
 @api_view(['GET'])
 
 def return_a_user(request, id):
-  user = User.objects.get(id=id)
+  try:
+    user = User.objects.get(id=id)
+  except:
+    error = {"errors": [{"detail": "User not found."}]}
+    return JsonResponse(error, status=404)
   serializer = UserSerializer(user)
   user_details = {"data":
                     {"id": f"{user.id}",
