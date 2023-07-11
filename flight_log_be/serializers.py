@@ -10,8 +10,7 @@ class UserSerializer(serializers.ModelSerializer):
 class FlightSerializer(serializers.ModelSerializer):
     class Meta:
         model = Flight
-        fields = ['id',
-                  'user',
+        fields = ['user',
                   'date',
                   'aircraft',
                   'start_location',
