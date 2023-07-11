@@ -5,7 +5,7 @@ from .models import Flight
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'first_name', 'last_name']
+        fields = ['first_name', 'last_name']
         
 class FlightSerializer(serializers.ModelSerializer):
     class Meta:
