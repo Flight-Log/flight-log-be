@@ -1,14 +1,31 @@
 from django.http import JsonResponse
-from .models import User
-from .serializers import UserSerializer
-from rest_framework.response import Response
 from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework import status
+from copy import deepcopy
 
-def user_list(request):
+from .serializers import FlightSerializer, UserSerializer
+from .models import User, Flight
+
+@api_view(['POST'])
+def create_flight(request, user):
+  data = deepcopy(request.data)
+  data['user'] = user
+  serializer = FlightSerializer(data=data)
   
-  users = User.objects.all()
-  serializer = UserSerializer(users, many=True)
-  return JsonResponse(serializer.data, safe=False)
+
+  if serializer.is_valid():
+    serializer.save()
+    flight_data = {"data": 
+                    {"id": Flight.objects.last().id,
+                     "type": "flight",
+                     "attributes": serializer.data
+                    }
+                  }
+    return Response(flight_data, status=status.HTTP_201_CREATED)
+  else:
+    error = {"errors": [serializer.errors]}
+    return Response(error, status=status.HTTP_400_BAD_REQUEST)
 
 
 @api_view(['GET'])
