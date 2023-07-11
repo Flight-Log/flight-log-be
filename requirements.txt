@@ -5,7 +5,6 @@ coverage==7.2.7
 Django==4.2.3
 django-pdb==0.6.2
 djangorestframework==3.14.0
-djangorestframework-jsonapi==6.0.0
 docopt==0.6.2
 factory-boy==3.2.1
 Faker==18.13.0
