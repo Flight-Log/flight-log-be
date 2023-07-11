@@ -33,7 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     "rest_framework",
-    "rest_framework_json_api",
+    # "rest_framework_json_api",
     "flight_log_be",
     "psycopg2",
     "django.contrib.admin",
