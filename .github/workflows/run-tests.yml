@@ -4,16 +4,34 @@ jobs:
   execute_tests:
     name: Install requirements and execute tests
     runs-on: ubuntu-latest
-    steps:
-      - name: Update
-        run: sudo apt update
-      - name: Check out repository code
-        uses: actions/checkout@v3
-      - name: Install pip
-        run: sudo apt install python3-pip
-      - name: Install requirements
-        run: pip install -r requirements.txt
-      - name: Execute tests
+
+    services:
+      postgres:
+        image: postgres:latest
         env:
-          DJANGO_SETTINGS_MODULE: mysite.settings
-        run: python -m unittest
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: FlightLog
+        ports:
+          - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+    steps:
+      # - name: Update
+      #   run: sudo apt update
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+      # - name: Install pip
+      #   run: sudo apt install python3-pip
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run migrations
+        run: python manage.py migrate
+      - name: Run tests
+        # env:
+        #   DJANGO_SETTINGS_MODULE: flight_log_be.settings
+        run: python manage.py test
