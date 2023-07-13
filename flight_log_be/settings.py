@@ -57,7 +57,10 @@ MIDDLEWARE = [
 ]
 
 # Restrict CORS access for all domains pre-deployment
-CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = (
+  'https://flight-log-be-24cea5be4c8e.herokuapp.com',
+)
 
 ROOT_URLCONF = "flight_log_be.urls"
 
