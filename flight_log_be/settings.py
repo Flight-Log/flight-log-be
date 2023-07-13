@@ -57,7 +57,7 @@ MIDDLEWARE = [
 ]
 
 # Restrict CORS access for all domains pre-deployment
-CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = "flight_log_be.urls"
 
