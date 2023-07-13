@@ -1,0 +1,1 @@
+web: gunicorn flight_log_be.wsgi
