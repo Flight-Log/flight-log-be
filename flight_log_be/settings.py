@@ -61,7 +61,7 @@ MIDDLEWARE = [
 ]
 
 # Restrict CORS access for all domains pre-deployment
-ALLOWED_HOSTS = ['http://localhost:19006', 'https://flight-log-be-24cea5be4c8e.herokuapp.com']
+ALLOWED_HOSTS = ['flight-log-be-24cea5be4c8e.herokuapp.com']
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
   'http://localhost:19006',
