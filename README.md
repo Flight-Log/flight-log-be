@@ -1,7 +1,15 @@
 # Flight Log - REST API
+![Workflow Badge](https://github.com/Flight-Log/flight-log-be/actions/workflows/run-tests.yml/badge.svg)
+
  
 ## About Flight Log
 Flight Log is a mobile application that allows those in the aviation industry to easily track their flight hours. Users will love the simple and easy-to-use app that will enable them to log their flights digitally instead of in a physical notebook. 
+
+## Table of Contents
+- [RESTful Endpoints](#restful-endpoints)
+- [Set-Up](#set-up)
+- [Usage](#usage)
+- [Contributors](#contributors)
 
 ## RESTful Endpoints
 
