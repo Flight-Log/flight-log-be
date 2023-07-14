@@ -64,7 +64,7 @@ MIDDLEWARE = [
 ALLOWED_HOSTS = ['*']
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = (
-  'localhost:19006',
+  'http://localhost:19006',
 )
 
 ROOT_URLCONF = "flight_log_be.urls"
