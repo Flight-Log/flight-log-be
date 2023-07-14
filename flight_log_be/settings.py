@@ -61,8 +61,8 @@ MIDDLEWARE = [
 ]
 
 # Restrict CORS access for all domains pre-deployment
-ALLOWED_HOSTS = ['*']
-CORS_ORIGIN_ALLOW_ALL = True
+ALLOWED_HOSTS = ['http://localhost:19006']
+CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
   'http://localhost:19006',
 )
