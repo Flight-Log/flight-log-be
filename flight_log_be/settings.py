@@ -64,8 +64,7 @@ MIDDLEWARE = [
 ALLOWED_HOSTS = ['flight-log-be-24cea5be4c8e.herokuapp.com']
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
-  'http://localhost:19006',
-  'https://flight-log-be-24cea5be4c8e.herokuapp.com',
+  'https://localhost:19006',
 )
 
 ROOT_URLCONF = "flight_log_be.urls"
