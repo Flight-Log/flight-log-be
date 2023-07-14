@@ -65,6 +65,7 @@ ALLOWED_HOSTS = ['flight-log-be-24cea5be4c8e.herokuapp.com']
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
   'http://localhost:19006',
+  'http://localhost:19000',
   'https://flight-log-ui-hjawad22-flightlog.vercel.app',
 )
 
