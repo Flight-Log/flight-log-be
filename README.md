@@ -255,8 +255,7 @@ Example Value:
 ```
 
 </details>
-
----
+</details>
 
 ## Set-Up
 ### Prerequisites
