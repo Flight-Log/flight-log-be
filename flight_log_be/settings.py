@@ -67,7 +67,7 @@ CORS_ORIGIN_WHITELIST = (
   'http://localhost:19006',
   'http://localhost:19000',
   'https://flight-log-ui-hjawad22-flightlog.vercel.app',
-  'https://flight-log-eight.vercel.app/',
+  'https://flight-log-eight.vercel.app',
 )
 
 ROOT_URLCONF = "flight_log_be.urls"
