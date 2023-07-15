@@ -76,7 +76,7 @@ def flights(request, user):
             serializer.save()
             flight_data = {
                 "data": {
-                    "id": Flight.objects.last().id,
+                    "id": f"{Flight.objects.last().id}",
                     "type": "flight",
                     "attributes": serializer.data,
                 }
