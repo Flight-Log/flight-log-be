@@ -23,7 +23,7 @@ def return_a_user(request, id):
     return JsonResponse(user_details, status=200)
 
 
-def users(request):
+def return_users(request):
     users = User.objects.all()
     serializer = UserSerializer(users, many=True)
     user_details = []
@@ -42,7 +42,7 @@ def users(request):
 
 
 @api_view(["GET", "POST"])
-def flights(request, user):
+def return_flights(request, user):
     if request.method == "GET":
         try:
             found_user = User.objects.get(pk=user)
