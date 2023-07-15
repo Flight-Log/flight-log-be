@@ -187,6 +187,10 @@ class FlightCreationTestCase(TestCase):
 
         self.assertTrue(Flight.objects.filter(user=user).exists())
 
+        flight = Flight.objects.all().last()
+        data = json.loads(response.content)["data"]
+        self.assertEqual(data["id"], f"{flight.id}")
+
 
 class FlightCreationSadPathTestCase(TestCase):
     def test_sad_path_flight_creation(self):
