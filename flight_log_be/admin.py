@@ -6,4 +6,4 @@ admin.site.register(User)
 admin.site.register(Flight)
 
 class FlightAdmin(admin.ModelAdmin):
-    list_display = ('id')
+    list_display = ('id', 'description')
