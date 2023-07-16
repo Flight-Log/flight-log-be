@@ -4,3 +4,6 @@ from .models import Flight
 
 admin.site.register(User)
 admin.site.register(Flight)
+
+class Flight(admin.Flight):
+    id = "id"
