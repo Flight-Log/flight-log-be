@@ -8,6 +8,8 @@ Flight Log is a mobile application that allows aviation industry professionals t
 
 This RESTful API back end is built with Python and Django, and utilizes the [Django-REST-Framework](https://www.django-rest-framework.org/) toolkit.
 
+Flight Log was conceptualized, designed, and developed over two weeks in July 2023, as part of the Capstone project for students in the Turing School of Software and Design.  More information about this project is available [here](https://mod4.turing.edu/projects/capstone/).
+
 ## Table of Contents
 
 - [RESTful Endpoints](#restful-endpoints)
