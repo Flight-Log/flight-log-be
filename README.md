@@ -50,8 +50,8 @@ Example Value:
     "id": "1",
     "type": "user",
     "attributes": {
-      "first_name": "Samuel",
-      "last_name": "Adams"
+      "first_name": "Tom",
+      "last_name": "Cruise"
     }
   }
 }
@@ -101,16 +101,16 @@ Example Value:
       "id": "1",
       "type": "user",
       "attributes": {
-        "first_name": "Samuel",
-        "last_name": "Adams"
+        "first_name": "Tom",
+        "last_name": "Cruise"
       }
     },
     {
       "id": "2",
       "type": "user",
       "attributes": {
-        "first_name": "Mike",
-        "last_name": "Jones"
+        "first_name": "Miles",
+        "last_name": "Teller"
       }
     }
   ]
@@ -152,7 +152,7 @@ Example Value:
         "night_hours": "2.0",
         "day_hours": "1.0",
         "aircraft": "Boeing 737",
-        "description": "great time!",
+        "description": "smooth ride",
         "date": "2023-03-09",
         "start_location": "DEN",
         "end_location": "LAX",
@@ -166,7 +166,7 @@ Example Value:
         "night_hours": "4.0",
         "day_hours": "0.0",
         "aircraft": "Boeing 737",
-        "description": "whoops we crashed!",
+        "description": "good visibility, some turbulence",
         "date": "2023-05-09",
         "start_location": "MIA",
         "end_location": "MSY",
@@ -180,7 +180,7 @@ Example Value:
         "night_hours": "9.0",
         "day_hours": "1.0",
         "aircraft": "Boeing 737",
-        "description": "meh",
+        "description": "short ride",
         "date": "2023-04-31",
         "start_location": "ATL",
         "end_location": "DAL",
@@ -244,7 +244,7 @@ Example Value:
       "night_hours": "2.0",
       "day_hours": "1.0",
       "aircraft": "Boeing 737",
-      "description": "great time!",
+      "description": "minimal turbulence",
       "date": "2023-03-09",
       "start_location": "DEN",
       "end_location": "LAX",
