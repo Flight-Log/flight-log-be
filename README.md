@@ -367,7 +367,7 @@ Once the development server is running, you can start interacting with the API e
   - [LinkedIn](https://www.linkedin.com/in/carolineperi/)
   - [GitHub](https://github.com/cariperi)
 - Brandon Johnson
-  - [LinkedIn](https://www.linkedin.com/in/brandon-j-94b740b2/)
+  - [LinkedIn](https://www.linkedin.com/in/brenicillin/)
   - [GitHub](https://github.com/brenicillin)
 - Katie Lonsdale
   - [LinkedIn](https://www.linkedin.com/in/katie-lonsdale-7b215185/)
