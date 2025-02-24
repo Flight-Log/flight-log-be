@@ -21,7 +21,7 @@ Flight Log was conceptualized, designed, and developed over two weeks in July 20
 
 <details close>
 
-### [Get A User](https://flight-log-be-24cea5be4c8e.herokuapp.com/api/v1/users/1/)
+### Get A User
 
 <details close>
 
@@ -71,7 +71,7 @@ Example Value:
 
 </details>
 
-### [Get All Users](https://flight-log-be-24cea5be4c8e.herokuapp.com/api/v1/users/)
+### Get All Users
 
 <details close>
 
@@ -119,7 +119,7 @@ Example Value:
 
 </details>
 
-### [Get All Flights for a User](https://flight-log-be-24cea5be4c8e.herokuapp.com/api/v1/users/1/flights/)
+### Get All Flights for a User
 
 <details close>
 
@@ -359,7 +359,7 @@ The server should start running at http://127.0.0.1:8000/. You can access the ad
 
 ## Usage
 
-Once the development server is running, you can start interacting with the API endpoints using tools like cURL, Postman, or your web browser. This API is also deployed on Heroku (links in [RESTful Endpoints section](#restful-endpoints) above).
+Once the development server is running, you can start interacting with the API endpoints using tools like cURL, Postman, or your web browser.
 
 ## Contributors
 
